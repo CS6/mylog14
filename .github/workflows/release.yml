@@ -31,8 +31,10 @@ jobs:
         tree -L 4
     - name: Install @angular/cli
       run: npm i -D -E @angular/cli
-    - name: Use coturiv/setup-ionic
-      uses: coturiv/setup-ionic@v1
+#     - name: Use coturiv/setup-ionic
+#       uses: coturiv/setup-ionic@v1
+#       with:
+#         cordova-version: 8
     - name: Use Node.js
       uses: actions/setup-node@v1
       with:
