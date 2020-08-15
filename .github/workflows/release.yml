@@ -29,19 +29,15 @@ jobs:
         tree ../../ -L 2
         tree ../../ -L 3 -d
         tree -L 4
-    - name: Install @angular/cli
-      run: npm i -D -E @angular/cli
-#     - name: Use coturiv/setup-ionic
-#       uses: coturiv/setup-ionic@v1
-#       with:
-#         cordova-version: 8
     - name: Use Node.js
       uses: actions/setup-node@v1
       with:
         always-auth: true
         node-version: '12.x'
         registry-url: https://npm.pkg.github.com
-        scope: '@numbersprotocol'    
+        scope: '@numbersprotocol'
+    - name: Install @angular/cli
+      run: npm install @angular/cli 
     - name: Install dependencies
       run: npm install @numbersprotocol/private-coupon@0.0.7
       env:
