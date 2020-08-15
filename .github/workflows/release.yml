@@ -36,10 +36,8 @@ jobs:
         node-version: '12.x'
         registry-url: https://npm.pkg.github.com
         scope: '@numbersprotocol'
-    - name: Install @angular/cli
-      run: npm install @angular/cli 
     - name: Install dependencies
-      run: npm install @numbersprotocol/private-coupon@0.0.7
+      run: npm ci
       env:
         NODE_AUTH_TOKEN: ${{secrets.MY_PAT_ACTION_TEST}}  
     - name: Showing Tree
