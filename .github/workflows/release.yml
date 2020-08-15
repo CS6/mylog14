@@ -29,12 +29,16 @@ jobs:
         registry-url: https://npm.pkg.github.com
         scope: '@numbersprotocol'    
     - name: Install dependencies
-      run: npm ci
-
-    - name: Install private-coupon
-      run: npm ci @numbersprotocol/private-coupon@0.0.7
+      run: |
+        npm ci -g @angular/cli
+        npm ci -g @ionic/cli
+        npm ci
       env:
-        NODE_AUTH_TOKEN: ${{secrets.MY_PAT_ACTION_TEST}}   
+        NODE_AUTH_TOKEN: ${{secrets.MY_PAT_ACTION_TEST}}  
+#     - name: Install private-coupon
+#       run: npm ci @numbersprotocol/private-coupon@0.0.7
+#       env:
+#         NODE_AUTH_TOKEN: ${{secrets.MY_PAT_ACTION_TEST}}   
 
     # Runs a single command using the runners shell
     - name: Run a one-line script
