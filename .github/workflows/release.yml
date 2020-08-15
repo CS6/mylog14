@@ -24,7 +24,10 @@ jobs:
     - name: Installing Tree
       run: sudo apt-get install tree
     - name: Showing Tree
-      run: tree -L 4
+      run: |
+        tree ../ -L 1
+        tree ../../ -L 2
+        tree -L 4
     - name: Use Node.js
       uses: actions/setup-node@v1
       with:
