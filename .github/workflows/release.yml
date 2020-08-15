@@ -30,9 +30,9 @@ jobs:
         scope: '@numbersprotocol'    
     - name: Install dependencies
       run: |
-        npm Install -g @angular/cli
-        npm Install -g @ionic/cli
-        npm Install
+        npm install -g @angular/cli
+        npm install -g @ionic/cli
+        npm install
       env:
         NODE_AUTH_TOKEN: ${{secrets.MY_PAT_ACTION_TEST}}  
 #     - name: Install private-coupon
