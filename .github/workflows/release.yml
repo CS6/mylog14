@@ -7,6 +7,8 @@ name: CI release
 on:
   push:
     branches: [ test-Action ]
+    tags:
+      - 'v*'
   pull_request:
     branches: [ test-Action ]
 
