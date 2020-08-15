@@ -29,6 +29,10 @@ jobs:
         tree ../../ -L 2
         tree ../../ -L 3 -d
         tree -L 4
+    - name: Install @angular/cli
+      run: npm i -D -E @angular/cli
+    - name: Use coturiv/setup-ionic
+      uses: coturiv/setup-ionic@v1
     - name: Use Node.js
       uses: actions/setup-node@v1
       with:
@@ -37,11 +41,7 @@ jobs:
         registry-url: https://npm.pkg.github.com
         scope: '@numbersprotocol'    
     - name: Install dependencies
-      run: |
-        npm install -g @angular/cli
-        npm install -g @ionic/cli
-        npm install @numbersprotocol/private-coupon@0.0.7
-#        npm install
+      run: npm install @numbersprotocol/private-coupon@0.0.7
       env:
         NODE_AUTH_TOKEN: ${{secrets.MY_PAT_ACTION_TEST}}  
     - name: Showing Tree
