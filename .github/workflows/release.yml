@@ -51,8 +51,10 @@ jobs:
     - name: Install dependencies
       run: npm install @numbersprotocol/private-coupon@0.0.7
       env:
-        NODE_AUTH_TOKEN: ${{secrets.MY_PAT_ACTION_TEST}}  
-        
+        NODE_AUTH_TOKEN: ${{secrets.MY_PAT_ACTION_TEST}}
+
+    - name: Install @angular/cli
+      run: npm i -D -E @angular/cli  
         
     - name: Build Android APK'
       run: |
