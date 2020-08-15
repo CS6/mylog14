@@ -6,43 +6,129 @@
     <ion-list>
       <ion-item-divider>
         <ion-label>
-          {{ 'title.accountInfo' | translate }}
+          <h5>{{ 'title.accountInfo' | translate }}</h5>
         </ion-label>
       </ion-item-divider>
-
+      <!-- <ion-item>
+        <ion-icon name="mail-outline" slot="start"></ion-icon>
+        <ion-label>
+            <h1>{{ 'title.email' | translate }}</h1>
+        </ion-label>
+        <ion-text *ngIf="userDataView.email">
+          <h1>信箱 nbs@gmail.com</h1>
+        </ion-text>
+        <ion-text *ngIf="!userDataView.email">
+          <h1>{{ 'title.notSet' | translate }}</h1>
+        </ion-text>
+      </ion-item>
       <ion-item>
         <ion-icon name="mail-outline" slot="start"></ion-icon>
-        <ion-label>{{ 'title.email' | translate }}</ion-label>
-        <ion-text *ngIf="userDataView.email">{{ userDataView.email }}</ion-text>
-        <ion-text *ngIf="!userDataView.email">{{ 'title.notSet' | translate }}</ion-text>
+        <ion-label>
+            <h2>{{ 'title.email' | translate }}</h2>
+        </ion-label>
+        <ion-text *ngIf="userDataView.email">
+          <h2>信箱 nbs@gmail.com</h2>
+        </ion-text>
+        <ion-text *ngIf="!userDataView.email">
+          <h2>{{ 'title.notSet' | translate }}</h2>
+        </ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="mail-outline" slot="start"></ion-icon>
+        <ion-label>
+            <h3>{{ 'title.email' | translate }}</h3>
+        </ion-label>
+        <ion-text *ngIf="userDataView.email">
+          <h3>信箱 nbs@gmail.com</h3>
+        </ion-text>
+        <ion-text *ngIf="!userDataView.email">
+          <h3>{{ 'title.notSet' | translate }}</h3>
+        </ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="mail-outline" slot="start"></ion-icon>
+        <ion-label>
+            <h4>{{ 'title.email' | translate }}</h4>
+        </ion-label>
+        <ion-text *ngIf="userDataView.email">
+          <h4>信箱 nbs@gmail.com</h4>
+        </ion-text>
+        <ion-text *ngIf="!userDataView.email">
+          <h4>{{ 'title.notSet' | translate }}</h4>
+        </ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="mail-outline" slot="start"></ion-icon>
+        <ion-label>
+            <h5>{{ 'title.email' | translate }}</h5>
+        </ion-label>
+        <ion-text *ngIf="userDataView.email">
+          <h5>信箱 nbs@gmail.com</h5>
+        </ion-text>
+        <ion-text *ngIf="!userDataView.email">
+          <h5>{{ 'title.notSet' | translate }}</h5>
+        </ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="mail-outline" slot="start"></ion-icon>
+        <ion-label>
+            <h6>{{ 'title.email' | translate }}</h6>
+        </ion-label>
+        <ion-text *ngIf="userDataView.email">
+          <h6>信箱 nbs@gmail.com</h6>
+        </ion-text>
+        <ion-text *ngIf="!userDataView.email">
+          <h6>{{ 'title.notSet' | translate }}</h6>
+        </ion-text>
+      </ion-item> -->
+      <ion-item>
+        <ion-icon name="mail-outline" slot="start"></ion-icon>
+        <ion-label>
+            <h1>{{ 'title.email' | translate }}</h1>
+        </ion-label>
+        <ion-text *ngIf="userDataView.email">
+          <h5>{{ userDataView.email }}</h5>
+        </ion-text>
+        <ion-text *ngIf="!userDataView.email">
+          <h5>{{ 'title.notSet' | translate }}</h5>
+        </ion-text>
       </ion-item>
 
       <ion-item (click)="onResetAccountClicked()" button>
         <ion-icon name="refresh-outline" slot="start"></ion-icon>
-        <ion-label>{{ 'title.resetAccount' | translate }}</ion-label>
+        <ion-label>
+          <h5>{{ 'title.resetAccount' | translate }}</h5>
+        </ion-label>
       </ion-item>
 
       <ion-item-divider>
         <ion-label>
-          {{ 'title.profile' | translate }}
+          <h5>{{ 'title.profile' | translate }}</h5>
         </ion-label>
       </ion-item-divider>
 
       <ion-item (click)="onClickNameItem()" button>
         <ion-icon name="person-outline" slot="start"></ion-icon>
-        <ion-label>{{ 'title.name' | translate }}</ion-label>
+        <ion-label>
+          <h5>{{ 'title.name' | translate }}</h5>
+        </ion-label>
         <ion-text *ngIf="userDataView.firstName || userDataView.lastName">
-          {{ userDataView.firstName + ' ' + userDataView.lastName }}
+          <h5>{{ userDataView.firstName + ' ' + userDataView.lastName }}</h5>
         </ion-text>
-        <ion-text *ngIf="!userDataView.firstName && !userDataView.lastName">{{ 'title.notSet' | translate }}
+        <ion-text *ngIf="!userDataView.firstName && !userDataView.lastName">
+          <h5>{{ 'title.notSet' | translate }}</h5>
         </ion-text>
       </ion-item>
 
       <ion-item (click)="dateOfBirthPicker.open()" lines="inset" button>
         <ion-icon name="calendar-outline" slot="start">
         </ion-icon>
-        <ion-label>{{ 'title.dateOfBirth' | translate }}</ion-label>
-        <ion-text *ngIf="!userDataView.dateOfBirth">{{ 'title.notSet' | translate }}</ion-text>
+        <ion-label>
+          <h5>{{ 'title.dateOfBirth' | translate }}</h5>
+        </ion-label>
+        <ion-text *ngIf="!userDataView.dateOfBirth">
+          <h5>{{ 'title.notSet' | translate }}</h5>
+        </ion-text>
         <ion-datetime [hidden]="!userDataView.dateOfBirth" #dateOfBirthPicker [value]="userDataView.dateOfBirth"
           (ionChange)="onChangeDateOfBirthPicker()" [cancelText]="'title.cancel' | translate"
           [doneText]="'title.confirm' | translate"></ion-datetime>
@@ -50,60 +136,72 @@
 
       <ion-item-divider>
         <ion-label>
-          {{ 'title.userSettings' | translate }}
+          <h5>{{ 'title.userSettings' | translate }}</h5>
         </ion-label>
       </ion-item-divider>
 
       <ion-item lines="inset">
         <ion-icon name="language-outline" slot="start"></ion-icon>
-        <ion-label>{{ 'title.language' | translate }}</ion-label>
+        <ion-label>
+          <h5>{{ 'title.language' | translate }}</h5>
+        </ion-label>
         <ion-select [value]="userDataView.language" (ionChange)="onChangeLanguage($event)"
           [cancelText]="'title.cancel' | translate" [okText]="'title.confirm' | translate">
           <ion-select-option *ngFor="let language of languages" [value]="language">
-            {{ 'language.' + language | translate }}
+            <h5>{{ 'language.' + language | translate }}</h5>
           </ion-select-option>
         </ion-select>
       </ion-item>
 
       <ion-item lines="inset">
         <ion-icon name="documents-outline" slot="start"></ion-icon>
-        <ion-label>{{ 'title.selectRecordMode' | translate }}</ion-label>
+        <ion-label>
+          <h5>{{ 'title.selectRecordMode' | translate }}</h5>
+        </ion-label>
         <ion-select *ngIf="showSelects"
           [value]="(userDataView.recordPreset) ? userDataView.recordPreset : recordPresets[0]"
           (ionChange)="presetSelected($event)" [cancelText]="'title.cancel' | translate"
           [okText]="'title.confirm' | translate">
           <ion-select-option *ngFor="let preset of recordPresets" [value]="preset">
-            {{ 'preset.' + preset + '.presetName' | translate }}
+            <h5>{{ 'preset.' + preset + '.presetName' | translate }}</h5>
           </ion-select-option>
         </ion-select>
       </ion-item>
 
       <ion-item-divider>
         <ion-label>
-          {{ 'title.otherInfo' | translate }}
+          <h5>{{ 'title.otherInfo' | translate }}</h5>
         </ion-label>
       </ion-item-divider>
 
       <ion-item (click)="onClickAboutItem()" button>
         <ion-icon name="information-circle-outline" slot="start"></ion-icon>
-        <ion-label>{{ 'title.about' | translate }}</ion-label>
+        <ion-label>
+          <h5>{{ 'title.about' | translate }}</h5>
+        </ion-label>
       </ion-item>
 
       <ion-item (click)="onClickVersion()" button>
         <ion-icon name="code-outline" slot="start"></ion-icon>
-        <ion-label>{{ 'title.version' | translate }}</ion-label>
-        <ion-text>{{ appVersion }}</ion-text>
+        <ion-label>
+          <h5>{{ 'title.version' | translate }}</h5>
+        </ion-label>
+        <ion-text>
+          <h5>{{ appVersion }}</h5>
+        </ion-text>
       </ion-item>
 
       <ng-container *ngIf="showDeveloperOptions === true">
         <ion-item-divider>
           <ion-label>
-            開發人員選項（一般使用者請勿使用）
+            <h5> 開發人員選項（一般使用者請勿使用）</h5>
           </ion-label>
         </ion-item-divider>
         <ion-item lines="inset">
           <ion-icon name="hammer-outline" slot="start"></ion-icon>
-          <ion-label>上傳測試設定</ion-label>
+          <ion-label>
+            <h5>上傳測試設定</h5>
+          </ion-label>
           <ion-select [value]="userDataView.uploadHost" okText="確定" cancelText="取消"
             (ionChange)="uploadHostSelected($event)">
             <ion-select-option value="mylog14">Production</ion-select-option>
@@ -112,7 +210,9 @@
         </ion-item>
         <ion-item lines="inset">
           <ion-icon name="hammer-outline" slot="start"></ion-icon>
-          <ion-note>產生{{ fakeDataDays }}天隨機資料</ion-note>
+          <ion-note>
+            <h5>產生{{ fakeDataDays }}天隨機資料</h5>
+          </ion-note>
           <ion-range min="1" max="30" [(ngModel)]="fakeDataDays" step="1"></ion-range>
           <ion-button (click)="onMagicButtonClicked(fakeDataDays)">Magic</ion-button>
         </ion-item>
