@@ -1,0 +1,120 @@
+# This is a basic workflow to help you get started with Actions
+
+name:  Apple  Certificates profiles build upload test
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [ XXtest-Action ]
+  pull_request:
+    branches: [ XXtest-Action ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: macOS-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+      
+    - name: Run a signing Certificate p12 script
+      uses: apple-actions/import-codesign-certs@v1
+      with: 
+        p12-file-base64: ${{ secrets.CERTIFICATES_P12 }}
+        p12-password: ${{ secrets.CERTIFICATES_P12_PASSWORD }}
+    - uses: Apple-Actions/download-provisioning-profiles@v1
+      with:
+        bundle-id: tw.mydatatw.mylog14
+        issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
+        api-key-id: ${{ secrets.APPSTORE_KEY_ID }}
+        api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
+   
+   
+    - name: "#️⃣ Generate Build Number"
+      id: buildnumber
+      uses: einaregilsson/build-number@v2
+      with:
+        token: ${{ secrets.github_token }}
+     
+    - name: Print new build number
+      run: |
+        echo "Build number is $BUILD_NUMBER"
+        echo "Build number is $buildnumber" ${{ steps.buildnumber.outputs }}
+
+    - name: Installing Tree
+      run: sudo brew install tree
+    - name: Showing Tree
+      run: |
+        tree ../ -L 1
+        tree ../../ -L 2
+        tree ../../ -L 3 -d
+        tree -L 4
+    - name: Use Node.js
+      uses: actions/setup-node@v1
+      with:
+        always-auth: true
+        node-version: '12.x'
+        registry-url: https://registry.npmjs.org
+        scope: '@numbersprotocol'
+    - name: Install dependencies
+      run: npm ci
+#       env:
+#         NODE_AUTH_TOKEN: ${{secrets.MY_PAT_ACTION_TEST}}  
+        
+    - name: Use Node.js 2
+      uses: actions/setup-node@v1
+      with:
+        always-auth: true
+        node-version: '12.x'
+        registry-url: https://npm.pkg.github.com
+        scope: '@numbersprotocol'
+    - name: Install dependencies
+      run: npm install @numbersprotocol/private-coupon@0.0.7
+      env:
+        NODE_AUTH_TOKEN: ${{secrets.MY_PAT_ACTION_TEST}}
+
+    - name: Install @angular/cli
+      run: |
+        npm i -D -E @angular/cli  
+        npm install -g @ionic/cli
+        
+    - name: Build ios ipa
+      run: |
+        ionic build
+        npx cap sync
+        cd ios/
+# pod install
+#        ./gradlew assembleDebug
+#        cd ..
+        ./Build 
+    - name: Showing Tree
+      run: tree -L 4
+  
+    - uses: Apple-Actions/upload-testflight-build@master
+      with:
+        app-path: .build/Artifacts/Example-iOS.ipa/Example-iOS.ipa
+        issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
+        api-key-id: ${{ secrets.APPSTORE_KEY_ID }}
+        api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
+
+
+
+    # Runs a single command using the runners shell
+    - name: Run a one-line script
+      run: echo Hello, world!
+
+    # Runs a set of commands using the runners shell
+    - name: Run a multi-line script
+      run: |
+        echo Add other actions to build,
+        echo test, and deploy your project.
+    - name: Run a echo
+      run: echo Add test actions ,
+
+
+
