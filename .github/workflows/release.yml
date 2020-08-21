@@ -6,11 +6,11 @@ name: CI release
 # events but only for the master branch
 on:
   push:
-    branches: [ test-Action ]
+    branches: [ XXtest-Action ]
     tags:
       - 'v*'
   pull_request:
-    branches: [ test-Action ]
+    branches: [ XXtest-Action ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
