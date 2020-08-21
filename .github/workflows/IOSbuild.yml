@@ -21,7 +21,14 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-      
+    - name: Installing Tree
+      run:  brew install tree
+    - name: Showing Tree
+      run: |
+        tree ../ -L 1
+        tree ../../ -L 2
+        tree ../../ -L 3 -d
+        tree -L 4  
     - name: Run a signing Certificate p12 script
       uses: apple-actions/import-codesign-certs@v1
       with: 
@@ -46,14 +53,7 @@ jobs:
         echo "Build number is $BUILD_NUMBER"
         echo "Build number is $buildnumber" ${{ steps.buildnumber.outputs }}
 
-    - name: Installing Tree
-      run: sudo brew install tree
-    - name: Showing Tree
-      run: |
-        tree ../ -L 1
-        tree ../../ -L 2
-        tree ../../ -L 3 -d
-        tree -L 4
+
     - name: Use Node.js
       uses: actions/setup-node@v1
       with:
