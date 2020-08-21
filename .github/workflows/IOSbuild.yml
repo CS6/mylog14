@@ -88,10 +88,8 @@ jobs:
         ionic build
         npx cap sync
         cd ios/
-# pod install
-#        ./gradlew assembleDebug
-#        cd ..
         ./Build 
+    # pod install
     - name: Showing Tree
       run: tree -L 4
   
