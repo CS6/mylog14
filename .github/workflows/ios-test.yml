@@ -6,9 +6,9 @@ name:  Apple Code-signing Certificates and Keys & download-provisioning-profiles
 # events but only for the master branch
 on:
   push:
-    branches: [ test-Action ]
+    branches: [ XXtest-Action ]
   pull_request:
-    branches: [ test-Action ]
+    branches: [ XXtest-Action ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
