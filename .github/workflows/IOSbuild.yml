@@ -112,7 +112,7 @@ jobs:
         cd ios/App
         pod install
         pod update
-        cd ../..
+#        cd ../..
 #     - name: Install pod dependencies
 #       run: |
 #         gem install cocoapods
