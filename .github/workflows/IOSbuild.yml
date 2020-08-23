@@ -92,24 +92,33 @@ jobs:
             ${{ runner.OS }}-pods-cache-
     - name: Install pod dependencies
       run: |
-        cd ios
+        cd ios/App
         pod install
         shell: bash
     
-    - name: Build ios ipa
+    - name: Build ionic 
       run: |
         ionic build
         npx cap sync
+        
+    - name: Build app
+      run: |
         cd ios/App
-        ./Build 
+        xcodebuild archive \
+            -workspace App.xcworkspace \
+            -scheme App
+    - name: Build app (APPLE)
+      run: ./Build             
+             
+#        ./Build 
 #     - name: Build app
 #       run: |
 #           cd ios && xcodebuild archive \
-#             -workspace appname.xcworkspace \
-#             -scheme appname \
+#             -workspace App.xcworkspace \
+#             -scheme App \
 #             -sdk iphoneos13.2 \
 #             -configuration Release \
-#             -archivePath $PWD/build/appname.xcarchive \
+#             -archivePath $PWD/build/App.xcarchive \
 #             IPHONEOS_DEPLOYMENT_TARGET=9.0
 #             PROVISIONING_PROFILE="UUID HERE" \
 #             CODE_SIGN_IDENTITY="iPhone Distribution: Some Company (T343ff)"
