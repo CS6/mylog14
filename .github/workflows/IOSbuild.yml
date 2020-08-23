@@ -86,7 +86,7 @@ jobs:
     - name: Cache Pods dependencies
       uses: actions/cache@v2.1.1
       with:
-        path: ios/Pods
+        path: ios/App/Pods
         key: ${{ runner.OS }}-pods-cache-${{ hashFiles('**/ios/Podfile.lock') }}
         restore-keys: |
             ${{ runner.OS }}-pods-cache-
@@ -95,7 +95,6 @@ jobs:
         cd ios
         pod install
         shell: bash
-
     
     - name: Build ios ipa
       run: |
