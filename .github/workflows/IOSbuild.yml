@@ -100,7 +100,7 @@ jobs:
       run: |
         ionic build
         npx cap sync
-        cd ios/
+        cd ios/App
         ./Build 
 #     - name: Build app
 #       run: |
