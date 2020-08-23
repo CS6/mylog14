@@ -63,6 +63,7 @@ jobs:
         registry-url: https://registry.npmjs.org
         scope: '@numbersprotocol'
     - name: Install dependencies
+      run: |
         npm i -D -E @angular/cli  
         npm install -g @ionic/cli cordova-res
         npm install @capacitor/core @capacitor/cli
