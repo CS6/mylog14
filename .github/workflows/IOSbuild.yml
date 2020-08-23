@@ -82,13 +82,39 @@ jobs:
       run: |
         npm i -D -E @angular/cli  
         npm install -g @ionic/cli
-        
+         
+    - name: Cache Pods dependencies
+      uses: actions/cache@v2.1.1
+      with:
+        path: ios/Pods
+        key: ${{ runner.OS }}-pods-cache-${{ hashFiles('**/ios/Podfile.lock') }}
+        restore-keys: |
+            ${{ runner.OS }}-pods-cache-
+    - name: Install pod dependencies
+      run: |
+        cd ios
+        pod install
+        shell: bash
+
+    
     - name: Build ios ipa
       run: |
         ionic build
         npx cap sync
         cd ios/
         ./Build 
+#     - name: Build app
+#       run: |
+#           cd ios && xcodebuild archive \
+#             -workspace appname.xcworkspace \
+#             -scheme appname \
+#             -sdk iphoneos13.2 \
+#             -configuration Release \
+#             -archivePath $PWD/build/appname.xcarchive \
+#             IPHONEOS_DEPLOYMENT_TARGET=9.0
+#             PROVISIONING_PROFILE="UUID HERE" \
+#             CODE_SIGN_IDENTITY="iPhone Distribution: Some Company (T343ff)"
+
     # pod install
     - name: Showing Tree
       run: tree -L 4
