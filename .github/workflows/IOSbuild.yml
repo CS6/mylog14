@@ -81,8 +81,10 @@ jobs:
     - name: Install @angular/cli
       run: |
         npm i -D -E @angular/cli  
-        npm install -g @ionic/cli
-         
+        npm install -g @ionic/cli cordova-res
+        npm install @capacitor/core @capacitor/cli
+
+ 
     - name: Cache Pods dependencies
       uses: actions/cache@v2.1.1
       with:
@@ -94,11 +96,13 @@ jobs:
       run: |
         cd ios/App
         pod install
+        pod update
         shell: bash
     
     - name: Build ionic 
       run: |
         ionic build
+        npx cap add ios
         npx cap sync
         
     - name: Build app
