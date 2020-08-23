@@ -69,10 +69,7 @@ jobs:
       run: |
         npm i -D -E @angular/cli  
         npm install @capacitor/core @capacitor/cli
-        cd ios/App
-        pod install
-        pod update 
-        cd ../..
+        npm install -g @ionic/cli cordova-res
         npm install
         
 #        npm install -g @ionic/cli cordova-res
@@ -98,7 +95,12 @@ jobs:
 #         npm install -g @ionic/cli cordova-res
 #         npm install @capacitor/core @capacitor/cli
 
- 
+    - name: Showing Tree
+      run: |
+        tree ../ -L 1
+        tree ../../ -L 2
+        tree ../../ -L 3 -d
+        tree -L 4   
     - name: Cache Pods dependencies
       uses: actions/cache@v2.1.1
       with:
