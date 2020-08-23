@@ -56,10 +56,7 @@ jobs:
     - name: Install pod dependencies
       run: |
         gem install cocoapods
-        cd ios/App
-        pod install
-        pod update 
-        cd ../..
+
 
     - name: Use Node.js
       uses: actions/setup-node@v1
@@ -71,10 +68,14 @@ jobs:
     - name: Install dependencies
       run: |
         npm i -D -E @angular/cli  
-        npm install -g @ionic/cli cordova-res
         npm install @capacitor/core @capacitor/cli
+        cd ios/App
+        pod install
+        pod update 
+        cd ../..
         npm install
         
+#        npm install -g @ionic/cli cordova-res
 #      run: npm ci
 #       env:
 #         NODE_AUTH_TOKEN: ${{secrets.MY_PAT_ACTION_TEST}}  
