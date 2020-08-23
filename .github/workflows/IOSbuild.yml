@@ -53,6 +53,7 @@ jobs:
         echo "Build number is $BUILD_NUMBER"
         echo "Build number is $buildnumber" ${{ steps.buildnumber.outputs }}
 
+  
 
     - name: Use Node.js
       uses: actions/setup-node@v1
@@ -62,7 +63,12 @@ jobs:
         registry-url: https://registry.npmjs.org
         scope: '@numbersprotocol'
     - name: Install dependencies
-      run: npm ci
+        npm i -D -E @angular/cli  
+        npm install -g @ionic/cli cordova-res
+        npm install @capacitor/core @capacitor/cli
+        npm install
+        
+#      run: npm ci
 #       env:
 #         NODE_AUTH_TOKEN: ${{secrets.MY_PAT_ACTION_TEST}}  
         
@@ -78,11 +84,11 @@ jobs:
       env:
         NODE_AUTH_TOKEN: ${{secrets.MY_PAT_ACTION_TEST}}
 
-    - name: Install @angular/cli
-      run: |
-        npm i -D -E @angular/cli  
-        npm install -g @ionic/cli cordova-res
-        npm install @capacitor/core @capacitor/cli
+#     - name: Install @angular/cli
+#       run: |
+#         npm i -D -E @angular/cli  
+#         npm install -g @ionic/cli cordova-res
+#         npm install @capacitor/core @capacitor/cli
 
  
     - name: Cache Pods dependencies
@@ -98,7 +104,8 @@ jobs:
         cd ios/App
         pod install
         pod update
-        shell: bash
+
+#        shell: bash
     
     - name: Build ionic 
       run: |
