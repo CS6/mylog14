@@ -94,6 +94,7 @@ jobs:
             ${{ runner.OS }}-pods-cache-
     - name: Install pod dependencies
       run: |
+        gem install cocoapods
         cd ios/App
         pod install
         pod update
