@@ -53,7 +53,13 @@ jobs:
         echo "Build number is $BUILD_NUMBER"
         echo "Build number is $buildnumber" ${{ steps.buildnumber.outputs }}
 
-  
+    - name: Install pod dependencies
+      run: |
+        gem install cocoapods
+        cd ios/App
+        pod install
+        pod update 
+        cd ../..
 
     - name: Use Node.js
       uses: actions/setup-node@v1
@@ -101,11 +107,16 @@ jobs:
             ${{ runner.OS }}-pods-cache-
     - name: Install pod dependencies
       run: |
-        gem install cocoapods
         cd ios/App
         pod install
         pod update
-
+        cd ../..
+#     - name: Install pod dependencies
+#       run: |
+#         gem install cocoapods
+#         cd ios/App
+#         pod install
+#         pod update
 #        shell: bash
     
     - name: Build ionic 
