@@ -100,18 +100,18 @@ jobs:
         tree ../../ -L 2
         tree ../../ -L 3 -d
         tree -L 4   
-    - name: Cache Pods dependencies
-      uses: actions/cache@v2.1.1
-      with:
-        path: ios/App/Pods
-        key: ${{ runner.OS }}-pods-cache-${{ hashFiles('**/ios/Podfile.lock') }}
-        restore-keys: |
-            ${{ runner.OS }}-pods-cache-
-    - name: Install pod dependencies
-      run: |
-        cd ios/App
-        pod install
-        pod update
+#     - name: Cache Pods dependencies
+#       uses: actions/cache@v2.1.1
+#       with:
+#         path: ios/App/Pods
+#         key: ${{ runner.OS }}-pods-cache-${{ hashFiles('**/ios/Podfile.lock') }}
+#         restore-keys: |
+#             ${{ runner.OS }}-pods-cache-
+#     - name: Install pod dependencies
+#       run: |
+#         cd ios/App
+#         pod install
+#         pod update
 #        cd ../..
 #     - name: Install pod dependencies
 #       run: |
