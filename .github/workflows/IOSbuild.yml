@@ -133,7 +133,7 @@ jobs:
         ionic build
         npx cap sync
         
-       ionic cap run ios  --prod
+#       #ionic cap run ios  --prod
     - name: Showing Tree
       run: tree -L 4
     - name: Build app (APPLE)
