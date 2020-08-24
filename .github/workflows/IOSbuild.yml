@@ -165,6 +165,7 @@ jobs:
       run: tree -L 4
     - name: Build IPA
       run: |
+        cd ios/App
         xcodebuild -exportArchive -archivePath $PWD/build/App.xcarchive -exportPath $PWD/build -exportOptionsPlist $PWD/ExportOptions.plist
 
 
@@ -177,7 +178,7 @@ jobs:
   
     - uses: Apple-Actions/upload-testflight-build@master
       with:
-        app-path: .build/App.ipa
+        app-path: ./build/App.ipa
         issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
         api-key-id: ${{ secrets.APPSTORE_KEY_ID }}
         api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
