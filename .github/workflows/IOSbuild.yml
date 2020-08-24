@@ -134,15 +134,27 @@ jobs:
         npx cap sync
         
 #        ionic cap run ios  --prod
-        
     - name: Showing Tree
       run: tree -L 4
-    - name: Build app
-      run: |
-        cd ios/App
-        xcodebuild archive -workspace App.xcworkspace -scheme App -configuration Release -archivePath $PWD/build/App.xcarchive 
+    - name: Build app (APPLE)
+      run: ./Build   
+
+
+#     - name: Showing Tree
+#       run: tree -L 4
+#     - name: Build app
+#       run: |
+#         cd ios/App
+#         xcodebuild archive -workspace App.xcworkspace -scheme App -configuration Release -archivePath $PWD/build/App.xcarchive 
 
      
+#     - name: Showing Tree
+#       run: tree -L 4
+#     - name: Build IPA
+#       run: |
+#         cd ios/App
+#         xcodebuild -exportArchive -archivePath $PWD/build/App.xcarchive -exportPath $PWD/build -exportOptionsPlist $PWD/ExportOptions.plist
+
         
 #        xcodebuild archive \
 #            -workspace App.xcworkspace \
@@ -169,13 +181,6 @@ jobs:
 #             CODE_SIGN_IDENTITY="iPhone Distribution: Some Company (T343ff)"
 
 
-
-    - name: Showing Tree
-      run: tree -L 4
-    - name: Build IPA
-      run: |
-        cd ios/App
-        xcodebuild -exportArchive -archivePath $PWD/build/App.xcarchive -exportPath $PWD/build -exportOptionsPlist $PWD/ExportOptions.plist
 
 
       
