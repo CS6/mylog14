@@ -24,28 +24,6 @@ jobs:
     - name: Installing Tree
       run:  brew install tree
 
-
-    - name: Showing Tree /
-      run: |
-        tree ../ -L 1
-
-    - name: Showing Tree /ios
-      run: |
-        cd ios
-        tree ../ -L 1
-
-
-    - name: Showing Tree/ios/app
-      run: |
-        cd ios/App
-        tree ../ -L 1
-    - name: Showing Tree/ios/app 2
-      run: |
-        tree ../ -L 1      
-    - name: Showing Tree/ios/app 3
-      run: |
-        cd ios/App
-        tree ../ -L 1
         
     - name: Showing Tree
       run: |
@@ -53,6 +31,7 @@ jobs:
         tree ../../ -L 2
         tree ../../ -L 3 -d
         tree -L 4  
+
     - name: Run a signing Certificate p12 script
       uses: apple-actions/import-codesign-certs@v1
       with: 
@@ -64,6 +43,9 @@ jobs:
         issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
         api-key-id: ${{ secrets.APPSTORE_KEY_ID }}
         api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
+
+    - name: 'Another example step'
+      run: echo ${{ steps.provisioning.outputs.profiles }}
    
    
     - name: "#️⃣ Generate Build Number"
@@ -185,6 +167,9 @@ jobs:
 #             IPHONEOS_DEPLOYMENT_TARGET=9.0
 #             PROVISIONING_PROFILE="UUID HERE" \
 #             CODE_SIGN_IDENTITY="iPhone Distribution: Some Company (T343ff)"
+
+
+
     - name: Showing Tree
       run: tree -L 4
     - name: Build IPA
@@ -193,9 +178,7 @@ jobs:
         xcodebuild -exportArchive -archivePath $PWD/build/App.xcarchive -exportPath $PWD/build -exportOptionsPlist $PWD/ExportOptions.plist
 
 
-
-
-
+      
     # pod install
     - name: Showing Tree
       run: tree -L 4
