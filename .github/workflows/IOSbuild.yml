@@ -137,6 +137,11 @@ jobs:
         xcodebuild archive \
             -workspace App.xcworkspace \
             -scheme App
+            -configuration Release \
+            -archivePath $PWD/build/App.xcarchive 
+
+
+
 #     - name: Build app (APPLE)
 #       run: ./Build             
              
