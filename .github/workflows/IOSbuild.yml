@@ -155,7 +155,7 @@ jobs:
      
     - name: Showing Tree
       run: tree -L 4
-    - name: Build IPA
+    - name: Build IPA (APPLE)
       run: |
         cd ios/App
         xcodebuild -exportArchive -archivePath $PWD/build/App.xcarchive -exportPath $PWD/build -exportOptionsPlist $PWD/ExportOptions.plist
