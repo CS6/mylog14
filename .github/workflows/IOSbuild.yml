@@ -137,7 +137,9 @@ jobs:
     - name: Showing Tree
       run: tree -L 4
     - name: Build app (APPLE)
-      run: ./Build   
+      run: |
+       cd ios/App
+       ./Build   
 
 
 #     - name: Showing Tree
