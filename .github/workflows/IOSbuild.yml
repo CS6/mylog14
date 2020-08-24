@@ -134,28 +134,33 @@ jobs:
         npx cap sync
         
 #       #ionic cap run ios  --prod
+#     - name: Showing Tree
+#       run: tree -L 4
+#     - name: Build app (APPLE)
+#       run: |
+#        cd ios/App
+#        sudo ./Build   
+
+
     - name: Showing Tree
       run: tree -L 4
-    - name: Build app (APPLE)
+    - name: Build app
       run: |
-       cd ios/App
-       sudo ./Build   
+        cd ios/App
+        xcodebuild archive -workspace App.xcworkspace -scheme App -sdk iphoneos  -configuration Release -archivePath $PWD/build/App.xcarchive  -parallelizeTargets   -showBuildTimingSummary   -disableAutomaticPackageResolution  -derivedDataPath $PWD/build/DerivedData  -resultBundlePath $PWD/build/App.xcresult  CURRENT_PROJECT_VERSION="40"   archive
 
+#       xcodebuild archive -workspace App.xcworkspace -scheme App -configuration Release -archivePath $PWD/build/App.xcarchive 
 
-#     - name: Showing Tree
-#       run: tree -L 4
-#     - name: Build app
-#       run: |
-#         cd ios/App
-#         xcodebuild archive -workspace App.xcworkspace -scheme App -configuration Release -archivePath $PWD/build/App.xcarchive 
 
      
-#     - name: Showing Tree
-#       run: tree -L 4
-#     - name: Build IPA
-#       run: |
-#         cd ios/App
-#         xcodebuild -exportArchive -archivePath $PWD/build/App.xcarchive -exportPath $PWD/build -exportOptionsPlist $PWD/ExportOptions.plist
+    - name: Showing Tree
+      run: tree -L 4
+    - name: Build IPA
+      run: |
+        cd ios/App
+        xcodebuild -exportArchive -archivePath $PWD/build/App.xcarchive -exportPath $PWD/build -exportOptionsPlist $PWD/ExportOptions.plist
+
+#        xcodebuild -exportArchive -archivePath $PWD/build/App.xcarchive -exportPath $PWD/build -exportOptionsPlist $PWD/ExportOptions.plist
 
         
 #        xcodebuild archive \
@@ -189,10 +194,10 @@ jobs:
     # pod install
     - name: Showing Tree
       run: tree -L 4
-  
+
     - uses: Apple-Actions/upload-testflight-build@master
       with:
-        app-path: ./build/App.ipa
+        app-path: ./ios/App/build/App.ipa
         issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
         api-key-id: ${{ secrets.APPSTORE_KEY_ID }}
         api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
