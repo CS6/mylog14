@@ -23,6 +23,30 @@ jobs:
     - uses: actions/checkout@v2
     - name: Installing Tree
       run:  brew install tree
+
+
+    - name: Showing Tree /
+      run: |
+        tree ../ -L 1
+
+    - name: Showing Tree /ios
+      run: |
+        cd ios
+        tree ../ -L 1
+
+
+    - name: Showing Tree/ios/app
+      run: |
+        cd ios/App
+        tree ../ -L 1
+    - name: Showing Tree/ios/app 2
+      run: |
+        tree ../ -L 1      
+    - name: Showing Tree/ios/app 3
+      run: |
+        cd ios/App
+        tree ../ -L 1
+        
     - name: Showing Tree
       run: |
         tree ../ -L 1
