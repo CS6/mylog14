@@ -134,11 +134,14 @@ jobs:
     - name: Build app
       run: |
         cd ios/App
-        xcodebuild archive \
-            -workspace App.xcworkspace \
-            -scheme App
-            -configuration Release \
-            -archivePath $PWD/build/App.xcarchive 
+        xcodebuild archive -workspace App.xcworkspace -scheme App -configuration Release -archivePath $PWD/build/App.xcarchive
+        
+        
+#        xcodebuild archive \
+#            -workspace App.xcworkspace \
+#            -scheme App
+#            -configuration Release \
+#            -archivePath $PWD/build/App.xcarchive 
 
 
 
