@@ -127,15 +127,16 @@ jobs:
         ionic build
         ionic cap run ios  --prod
         
-
+    - name: Showing Tree
+      run: tree -L 4
     - name: Build app
       run: |
         cd ios/App
         xcodebuild archive \
             -workspace App.xcworkspace \
             -scheme App
-    - name: Build app (APPLE)
-      run: ./Build             
+#     - name: Build app (APPLE)
+#       run: ./Build             
              
 #        ./Build 
 #     - name: Build app
