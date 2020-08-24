@@ -27,6 +27,9 @@ jobs:
         
     - name: Showing Tree
       run: |
+        cd ios/App
+        mkdir build
+        cd ../..
         tree ../ -L 1
         tree ../../ -L 2
         tree ../../ -L 3 -d
