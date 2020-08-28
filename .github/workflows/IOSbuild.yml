@@ -174,12 +174,12 @@ jobs:
         xcodebuild archive -workspace App.xcworkspace -scheme App -sdk iphoneos  -configuration Release -archivePath $PWD/build/App.xcarchive     -showBuildTimingSummary     -derivedDataPath $PWD/build/DerivedData  -resultBundlePath $PWD/build/App.xcresult  CURRENT_PROJECT_VERSION="41"   archive
 
 
-    - name: Showing Tree
-      run: tree -L 4
-    - name: Build app
-      run: |
-        cd ios/App
-        xcodebuild archive -workspace App.xcworkspace -scheme App -sdk iphoneos  -configuration Release -archivePath $PWD/build/App.xcarchive  -parallelizeTargets   -showBuildTimingSummary   -disableAutomaticPackageResolution  -derivedDataPath $PWD/build/DerivedData  -resultBundlePath $PWD/build/App.xcresult  CURRENT_PROJECT_VERSION="40"   archive
+#     - name: Showing Tree
+#       run: tree -L 4
+#     - name: Build app
+#       run: |
+#         cd ios/App
+#         xcodebuild archive -workspace App.xcworkspace -scheme App -sdk iphoneos  -configuration Release -archivePath $PWD/build/App.xcarchive  -parallelizeTargets   -showBuildTimingSummary   -disableAutomaticPackageResolution  -derivedDataPath $PWD/build/DerivedData  -resultBundlePath $PWD/build/App.xcresult  CURRENT_PROJECT_VERSION="40"   archive
 
 #       xcodebuild archive -workspace App.xcworkspace -scheme App -configuration Release -archivePath $PWD/build/App.xcarchive 
 
@@ -190,9 +190,9 @@ jobs:
     - name: Build IPA (APPLE)
       run: |
         cd ios/App
-        xcodebuild -exportArchive -archivePath $PWD/build/App.xcarchive -exportPath $PWD/build -exportOptionsPlist $PWD/ExportOptions.plist
-
-#        xcodebuild -exportArchive -archivePath $PWD/build/App.xcarchive -exportPath $PWD/build -exportOptionsPlist $PWD/ExportOptions.plist
+        xcodebuild -exportArchive -archivePath $PWD/build/App.xcarchive -exportPath $PWD/build -exportOptionsPlist $PWD/ExportOptions.plis#＃
+#        xcodebuild -exportArchive -archivePath $PWD/build/App.xcarchive -exportPath $PWD/build -exportOptionsPlist $PWD/ExportOptions.plist#
+#/Users/runner/work/mylog14/mylog14/ios/App/build/App.xcresult
 
         
 #        xcodebuild archive \
@@ -222,7 +222,8 @@ jobs:
 
 
 
-      
+    #/Users/runner/work/mylog14/mylog14/ios/App/build/App.xcresult
+  
     # pod install
     - name: Showing Tree
       run: tree -L 4
