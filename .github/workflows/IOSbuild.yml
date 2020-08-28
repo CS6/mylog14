@@ -155,7 +155,16 @@ jobs:
 
     - name: 'Another example step'
       run: echo ${{ steps.provisioning.outputs.profiles }}
-   
+      
+    - name: Showing Tree
+      run: tree -L 4
+
+    - name: Build app
+      run: |
+        cd ios/App
+        xcodebuild archive \
+            -workspace App.xcworkspace \
+            -scheme App
 
     - name: Showing Tree
       run: tree -L 4
