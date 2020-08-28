@@ -168,6 +168,14 @@ jobs:
 
     - name: Showing Tree
       run: tree -L 4
+    - name: Build app (fix)
+      run: |
+        cd ios/App
+        xcodebuild archive -workspace App.xcworkspace -scheme App -sdk iphoneos  -configuration Release -archivePath $PWD/build/App.xcarchive     -showBuildTimingSummary     -derivedDataPath $PWD/build/DerivedData  -resultBundlePath $PWD/build/App.xcresult  CURRENT_PROJECT_VERSION="41"   archive
+
+
+    - name: Showing Tree
+      run: tree -L 4
     - name: Build app
       run: |
         cd ios/App
