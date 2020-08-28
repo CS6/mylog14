@@ -190,7 +190,7 @@ jobs:
     - name: Build IPA (APPLE)
       run: |
         cd ios/App
-        xcodebuild -exportArchive -archivePath $PWD/build/App.xcarchive -exportPath $PWD/build -exportOptionsPlist $PWD/ExportOptions.plis#＃
+        xcodebuild -exportArchive -archivePath $PWD/build/App.xcarchive -exportPath $PWD/build -exportOptionsPlist $PWD/ExportOptions.plis
 #        xcodebuild -exportArchive -archivePath $PWD/build/App.xcarchive -exportPath $PWD/build -exportOptionsPlist $PWD/ExportOptions.plist#
 #/Users/runner/work/mylog14/mylog14/ios/App/build/App.xcresult
 
