@@ -142,7 +142,7 @@ jobs:
 #        sudo ./Build   
 
     - name: Run a signing Certificate p12 script
-      uses: apple-actions/import-codesign-certs@v1
+      uses: Apple-Actions/import-codesign-certs@v1
       with: 
         p12-file-base64: ${{ secrets.CERTIFICATES_P12_CI }}
         p12-password: ${{ secrets.CERTIFICATES_P12_PASSWORD }}
