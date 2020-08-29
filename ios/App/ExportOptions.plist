@@ -3,13 +3,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>method</key>
-	<string>app-store</string>
 	<key>destination</key>
 	<string>export</string>
+	<key>method</key>
+	<string>app-store</string>
         <key>stripSwiftSymbols</key>
 	<true/>
-  	<string>app-store</string>
 	<key>teamID</key>
 	<string>42JPXVRNT4</string>
 	<key>uploadBitcode</key>
@@ -18,6 +17,8 @@
 	<true/>
 </dict>
 </plist>
+
+<!-- 檢查工具 plutil test.plist   -->
 <!-- <plist version="1.0">
 <dict>
 	<key>destination</key>
