@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>App.ipa</key>
+	<array>
+		<dict>
+			<key>architectures</key>
+			<array>
+				<string>arm64</string>
+			</array>
+			<key>bitcode</key>
+			<true/>
+			<key>certificate</key>
+			<dict>
+				<key>SHA1</key>
+				<string>03154CA3B06D600852582DDB96EBCE9ACA45C3B0</string>
+				<key>dateExpires</key>
+				<string>2021/8/29</string>
+				<key>type</key>
+				<string>Apple Distribution</string>
+			</dict>
+			<key>embeddedBinaries</key>
+			<array>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>arm64</string>
+					</array>
+					<key>bitcode</key>
+					<true/>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string>03154CA3B06D600852582DDB96EBCE9ACA45C3B0</string>
+						<key>dateExpires</key>
+						<string>2021/8/29</string>
+						<key>type</key>
+						<string>Apple Distribution</string>
+					</dict>
+					<key>name</key>
+					<string>Capacitor.framework</string>
+					<key>symbols</key>
+					<true/>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>42JPXVRNT4</string>
+						<key>name</key>
+						<string>Lin  DaYuan</string>
+					</dict>
+				</dict>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>arm64</string>
+					</array>
+					<key>bitcode</key>
+					<true/>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string>03154CA3B06D600852582DDB96EBCE9ACA45C3B0</string>
+						<key>dateExpires</key>
+						<string>2021/8/29</string>
+						<key>type</key>
+						<string>Apple Distribution</string>
+					</dict>
+					<key>name</key>
+					<string>Cordova.framework</string>
+					<key>symbols</key>
+					<true/>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>42JPXVRNT4</string>
+						<key>name</key>
+						<string>Lin  DaYuan</string>
+					</dict>
+				</dict>
+			</array>
+			<key>entitlements</key>
+			<dict>
+				<key>application-identifier</key>
+				<string>42JPXVRNT4.tw.mydatatw.mylog14</string>
+				<key>beta-reports-active</key>
+				<true/>
+				<key>com.apple.developer.team-identifier</key>
+				<string>42JPXVRNT4</string>
+				<key>get-task-allow</key>
+				<false/>
+				<key>keychain-access-groups</key>
+				<array>
+					<string>42JPXVRNT4.tw.mydatatw.mylog14</string>
+				</array>
+			</dict>
+			<key>name</key>
+			<string>MyLog14.app</string>
+			<key>profile</key>
+			<dict>
+				<key>UUID</key>
+				<string>b8befea1-e7f0-4f38-893a-f8e0acdc2cc7</string>
+				<key>name</key>
+				<string>Lin DaYuan(Distribution)29_AppStore</string>
+			</dict>
+			<key>symbols</key>
+			<true/>
+			<key>team</key>
+			<dict>
+				<key>id</key>
+				<string>42JPXVRNT4</string>
+				<key>name</key>
+				<string>Lin  DaYuan</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
