@@ -2,6 +2,13 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+  <key>method</key>
+  <string>app-store</string>
+</dict>
+
+</plist>
+<!-- 
+<dict>
 	<key>method</key>
 	<string>app-store</string>
 	<key>teamID</key>
@@ -20,8 +27,6 @@
 		<string>Client App Release</string>
 	</dict>
 </dict>
-</plist>
-<!-- 
 <key>signingCertificate</key>
 	<string>iOS Distribution: POSSIBLE Mobile</string>
 <?xml version="1.0" encoding="UTF-8"?>
