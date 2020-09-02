@@ -171,8 +171,9 @@ jobs:
     - name: Build app (fix)
       run: |
         cd ios/App
-        xcodebuild archive -workspace App.xcworkspace -scheme App -sdk iphoneos  -configuration Release -archivePath $PWD/build/App.xcarchive     -showBuildTimingSummary     -derivedDataPath $PWD/build/DerivedData  -resultBundlePath $PWD/build/App.xcresult  CURRENT_PROJECT_VERSION="41"   archive
-
+        xcodebuild archive -workspace App.xcworkspace -scheme App -sdk iphoneos  -configuration Release -archivePath $PWD/build/App.xcarchive     -showBuildTimingSummary     CURRENT_PROJECT_VERSION="52"   archive
+#      xcodebuild archive  -scheme exp001  -sdk iphoneos -configuration Release -archivePath ../build/export     -showBuildTimingSummary     CURRENT_PROJECT_VERSION="41"   archive
+#        xcodebuild archive -workspace App.xcworkspace -scheme App -sdk iphoneos  -configuration Release -archivePath $PWD/build/App.xcarchive     -showBuildTimingSummary     -derivedDataPath $PWD/build/DerivedData  -resultBundlePath $PWD/build/App.xcresult  CURRENT_PROJECT_VERSION="41"   archive
 
 #     - name: Showing Tree
 #       run: tree -L 4
@@ -191,6 +192,7 @@ jobs:
       run: |
         cd ios/App
         xcodebuild -exportArchive -archivePath $PWD/build/App.xcarchive -exportPath $PWD/build -exportOptionsPlist $PWD/ExportOptions.plist -allowProvisioningUpdates
+#        xcodebuild -exportArchive -archivePath ./build/export.xcarchive -exportPath ./build -exportOptionsPlist ./test/ExportOptions.plist -allowProvisioningUpdates
 
 #        xcodebuild -exportArchive -archivePath $PWD/build/App.xcarchive -exportPath $PWD/build -exportOptionsPlist $PWD/ExportOptions.plist#
 #/Users/runner/work/mylog14/mylog14/ios/App/build/App.xcresult
